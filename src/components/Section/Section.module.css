@@ -1,20 +1,18 @@
-.header {
+.header{
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  color: white;
 }
 
-.toggleText {
-  cursor: pointer;
-  color: green;
+.cardWrapper{
+  margin-top: 18px;
 }
-.wrapper {
+.wrapper{
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
-  margin-bottom: 10px;
 }
-.main {
-  margin-bottom: 25px;
+.toggleText{
+  color: var(--color-primary);
+  cursor: pointer;
 }
