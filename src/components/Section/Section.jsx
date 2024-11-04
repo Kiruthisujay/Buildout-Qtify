@@ -1,40 +1,40 @@
 import React, { useState } from "react";
 import styles from "./Section.module.css";
 import Card from "../Card/Card";
-import { CircularProgress } from "@mui/material";
 import Carousel from "../Carousel/Carousel";
 
-const Section = ({ title, data, type }) => {
-  const [carouselToggle, setCarouselToggle] = useState(true);
-
+const Section = (data, title) => {
+  const [toggle, setToggle] = useState(false);
   const handleToggle = () => {
-    setCarouselToggle(!carouselToggle);
+    setToggle(!toggle);
   };
   return (
-    <div>
+    <div className={styles.main}>
       <div className={styles.header}>
-        <h3>{title}</h3>
+        <h3>{data.title}</h3>
         <h4 className={styles.toggleText} onClick={handleToggle}>
-          {carouselToggle ? "Show All" : "Collapse All"}
+          {toggle ? "showAll" : "Collapse All"}
         </h4>
       </div>
-      {data.length === 0 ? (
-        <CircularProgress />
-      ) : (
+      {data && data.data.length > 0 && (
         <div className={styles.cardWrapper}>
-          {!carouselToggle ? (
+          {!toggle ? (
             <div className={styles.wrapper}>
-                {data.map((card) => (
-                <Card data={card} type={type} key={card.id} />
-                ))}
+              {data.data.map((item) => {
+                return <Card data={item} />;
+              })}
             </div>
           ) : (
-            <Carousel data={data} renderCardComponent={(data) => <Card data={data} type={type}/>}/>
+            <>
+              <Carousel
+                data={data}
+                component={(data) => <Card data={data} />}
+              />
+            </>
           )}
         </div>
       )}
     </div>
   );
 };
-
 export default Section;

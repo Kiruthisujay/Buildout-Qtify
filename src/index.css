@@ -1,7 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 :root {
-  --color-primary: #34c94b;
-  --color-white: #ffffff;
-  --color-black: #121212;
+  --primary-color: #34c94b;
+  --black-color: #121212;
+  --white-color: #ffffff;
 }
 
 *,
@@ -9,27 +10,41 @@
 *::after {
   box-sizing: border-box;
 }
+body {
+  background-color: var(--black-color);
+  font-family: "Poppins", sans-serif;
+}
 * {
   margin: 0;
 }
-html,body {
+html,
+body {
   height: 100%;
 }
-body {
-  background-color: var(--color-black);
-  color: var(--color-white);
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.5;
-  overflow-x: hidden;
-}
-
-img,svg{
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
-  /* align-items: center; */
   max-width: 100%;
-  /* margin: 5px; */
 }
-
-.swiper-slide{
-  width: auto !important;
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
 }

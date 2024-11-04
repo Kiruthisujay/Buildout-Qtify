@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
-import Search from "../SearchBar/Search";
-import styles from './Navbar.module.css'
-import Logo from '../../assets/Logo.png';
+import Logo from "../../assets/Logo.png";
+import SearchBar from "../SearchBar/Search";
+import "./Navbar.module.css";
 
 
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(true);
+  };
+  return (
+    <>
+      <nav className="navbar">
+        <Logo />
+        <SearchBar />
+        {/* <ModelNew val={open} className="button" onClick={handleClick} /> */}
+        <Button text="Give Feedback" type="button" onClick={handleClick} />
+      </nav>
+    </>
+  );
+};
 
-export default function Navbar(){
-    return(
-        <>
-            <nav className={styles.navbar}>
-                <div className={styles.logoDiv}><img  src={LogoImage} alt="logo" width={67}/></div>
-                 <Search search={"Search a song of your choice"}/>
-                <Button children="Give Feedback"/>
-            </nav>
-        </>
-    )
-}
+export default NavBar;
